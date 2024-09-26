@@ -8,7 +8,7 @@ import UpcomingEvents from './UpcomingEvents';
 import Options from './Options';
 import Officers from './Officers'; // Import Officers component
 import About from './About'; // Import About component
-
+// Comment
 import gameNightFlyer from './assets/images/game_night_flyer.jpg';
 import pastEventFlyer from './assets/images/past_event_flyer.jpg';
 import pastEventFlyer2 from './assets/images/past_event_flyer_2.jpg';
