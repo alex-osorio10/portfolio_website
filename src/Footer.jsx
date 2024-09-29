@@ -1,8 +1,8 @@
-// src/Footer.jsx
 import React from 'react';
-import facebookLogo from './assets/images/facebook_logo_orange.png';
+// Import the images from the correct folder
 import instagramLogo from './assets/images/instagram_logo_orange.png';
-import emailLogo from './assets/images/email_logo_orange.png'; // Assuming SHPE logo for email icon
+import facebookLogo from './assets/images/facebook_logo_orange.png';
+import emailLogo from './assets/images/email_logo_orange.png';
 
 function Footer() {
   return (
@@ -34,7 +34,7 @@ function Footer() {
           </a>
         </div>
 
-        <p>"The most important thing is to try and inspire people so that they can be great in whatever they want to do." </p>
+        <p>"It's worth dreaming big when you are willing to put in the work that is needed to accomplish the goal you have."</p>
       </div>
     </footer>
   );

@@ -1,11 +1,7 @@
-// Header.jsx by Alex
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import shpeLogo from './assets/images/shpe_logo_color.png'; // Your SHPE logo
-import psuLogo from './assets/images/psu_vertical_logo_color.png'; // Your PSU logo
-import verticalLine from './assets/images/vertical_line_black.png'; // Vertical line image
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,9 +13,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <div className="logo-container">
-        <img src={shpeLogo} alt="SHPE Logo" className="logo" />
-        <img src={verticalLine} alt="Vertical Line" className="vertical-line" />
-        <img src={psuLogo} alt="PSU Logo" className="logo" />
+        <span className="logo-text">AOT</span>
       </div>
 
       <div className="menu-button" onClick={toggleMenu}>
@@ -37,10 +31,10 @@ const Header = () => {
               <Link to="/#upcoming-events" onClick={toggleMenu}>Events</Link>
             </li>
             <li className="dropdown-item">
-              <Link to="/about" onClick={toggleMenu}>About Us</Link>
+              <Link to="/about" onClick={toggleMenu}>About Me</Link>
             </li>
             <li className="dropdown-item">
-              <Link to="/officers" onClick={toggleMenu}>Officers</Link> {/* Officers link */}
+              <Link to="/officers" onClick={toggleMenu}>Portfolio</Link> {/* Modify this as needed */}
             </li>
           </ul>
         </nav>
