@@ -1,8 +1,5 @@
 [build]
-  # The build command that Netlify will run
   command = "npm run build"
-  
-  # The directory to publish after the build process
   publish = "dist"
 
 [[redirects]]
