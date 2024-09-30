@@ -11,6 +11,14 @@
   font-style: normal;
 }
 
+/* Import ZenKakuGothicNew-Black font */
+@font-face {
+  font-family: 'ZenKaku';
+  src: url('./assets/fonts/ZenKakuGothicNew-Black.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 
 body {
   margin: 0;
@@ -48,13 +56,14 @@ header {
   height: 90px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Align logo to left and menu to right */
   align-items: center;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  cursor: pointer; /* Make the logo clickable */
 }
 
 .logo-text {
@@ -68,22 +77,117 @@ header {
   color: #CA9A12;
 }
 
-.menu-button {
-  cursor: pointer;
+/* For nav links, hide on small screens */
+.nav-links {
+  display: flex;
+  margin-left: auto; /* Push navigation links to the right */
 }
 
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0 15px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.nav-list li:hover {
+  color: #CA9A12;
+}
+
+/* Dropdown Menu Styles */
 .menu-icon {
-  font-size: 24px;
-  color: #ffffff;
-  transition: transform 0.3s, color 0.3s;
-  margin-left: auto;
+  color: white; /* Set the color of the menu icon to white */
+  font-size: 2rem; /* Adjust the size as needed */
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .menu-icon:hover {
-  color: #CA9A12;
-  transform: scale(1.2);
+  color: #CA9A12; /* Change the color on hover */
 }
-/* HEADER COMPONENT END */
+
+
+
+.dropdown-menu {
+  position: fixed; /* Dropdown is fixed to move with the page */
+  top: 90px; /* Positioned directly below the header */
+  right: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Ensure it stays on top of other elements */
+  width: 200px;
+}
+
+
+.dropdown-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-item {
+  text-align: center;
+  cursor: pointer; /* Add cursor pointer for dropdown items */
+}
+
+.dropdown-item:hover {
+  background-color: #CA9A12;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  display: block;
+  padding: 15px 20px;
+}
+
+.dropdown-item a:hover {
+  background-color: #6E8D23;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+/* Hide nav links on small screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .dropdown-menu {
+    right: 0;
+    width: 100%; /* Full width on mobile */
+  }
+
+  .dropdown-item {
+    padding: 15px 0;
+  }
+}
+
+/* Show nav links when screen is larger than 768px, hide dropdown */
+@media (min-width: 769px) {
+  .menu-button {
+    display: none; /* Hide menu button on larger screens */
+  }
+
+  .nav-links {
+    display: flex; /* Show nav links */
+  }
+
+  .dropdown-menu {
+    display: none; /* Hide dropdown menu */
+  }
+}
+
 
 
 /* BACKGROUNDIMAGE COMPONENT */
@@ -103,7 +207,7 @@ header {
 
 .left-content {
   position: absolute;
-  left: 15%;
+  left: 10%; /* Position closer to the original left spot */
   top: 50%;
   transform: translateY(-50%);
   text-align: left;
@@ -121,57 +225,24 @@ header {
   margin: 10px 0;
 }
 
-.social-buttons {
-  margin-top: 20px;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 10px 20px;
-  border: 2px solid rgb(0, 0, 0);
-  color: white;
-  background-color: transparent;
-  font-size: 1rem;
-  margin-right: 10px;
-  border-radius: 5px;
-  transition: background-color 0.3s, color 0.3s;
+.social-icons {
+  position: absolute;
+  left: 1%; /* Align social icons near the left edge */
+  top: 40%;
+  display: flex;
+  flex-direction: column; /* Stack the icons vertically */
+  gap: 20px; /* Space between icons */
 }
 
 .social-icon {
-  margin-right: 8px;
-  font-size: 1.2rem;
+  color: white;
+  font-size: 2rem; /* Adjust icon size as needed */
+  transition: color 0.3s;
+  text-decoration: none;
 }
 
-/* LinkedIn Button */
-.linkedin {
-  background-color: #1d56b9;
-}
-
-.linkedin:hover {
-  background-color: white;
-  color: #1d56b9;
-}
-
-/* GitHub Button */
-.github {
-  background-color: #333333;
-}
-
-.github:hover {
-  background-color: #EED254;
-  color: #333333;
-}
-
-/* Instagram Button */
-.instagram {
-  background-color: #FC00D9;
-}
-
-.instagram:hover {
-  background-color: #ffffff;
-  color: #000000;
+.social-icon:hover {
+  color: #CA9A12; /* Change icon color on hover */
 }
 
 .headshot-image {
@@ -181,18 +252,101 @@ header {
   transform: translateY(-50%);
   width: 400px;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .left-content {
+    left: 5%; /* Adjust text position to the left */
+    top: 20%; /* Move text higher up for more room */
+  }
+
+  .name {
+    font-size: 2rem; /* Reduce font size for smaller screens */
+  }
+
+  .subtitle {
+    font-size: 1.2rem; /* Reduce subtitle size */
+  }
+
+  .social-icons {
+    left: 5%; /* Push icons closer to the text */
+    top: 60%; /* Lower icons on smaller screens */
+    gap: 15px; /* Reduce spacing between icons */
+  }
+
+  .social-icon {
+    font-size: 1.5rem; /* Make icons smaller on mobile */
+  }
+
+  .headshot-image {
+    width: 250px; /* Reduce size of the headshot */
+    right: 5%; /* Bring headshot closer to the center */
+    top: 60%; /* Adjust headshot vertical position */
+  }
+}
+
+@media (max-width: 480px) {
+  .left-content {
+    left: 3%; /* Move text closer to the edge */
+    top: 15%; /* Further adjust text position */
+  }
+
+  .name {
+    font-size: 1.8rem; /* Further reduce font size */
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Further reduce subtitle size */
+  }
+
+  .social-icons {
+    left: 3%; /* Align social icons near the edge */
+    top: 65%; /* Further adjust icons */
+    gap: 10px; /* Reduce spacing between icons */
+  }
+
+  .social-icon {
+    font-size: 1.2rem; /* Make icons even smaller */
+  }
+
+  .headshot-image {
+    width: 200px; /* Further reduce headshot size */
+    right: 3%; /* Bring headshot closer to center */
+    top: 65%; /* Adjust headshot position */
+  }
+}
+
+
 /* BACKGROUNDIMAGE COMPONENT END */
+
+
+
+
+
+
+
 
 
 
 /* SKILLS SECTION */
 .skills-section {
-  background-color: #202020; /* Lighter blue */
-  padding: 50px 0;
+  background-color: #202020;
+  padding: 40px 0; /* Reduce the top padding */
   text-align: center;
   width: 100vw;
   font-family: 'Lexend', Georgia, serif; /* Apply Lexend with Georgia as fallback */
 }
+
+.skills-header {
+  font-family: 'Georgia', Arial, sans-serif; /* Use ZenKaku with Arial as fallback */
+  font-size: 4rem; /* Adjust the size */
+  color: #F2BF47; /* Use the specified color */
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin: 0 0 10px 0; /* Remove top margin, reduce bottom margin to 10px */
+}
+
+
 
 .skills-title {
   font-size: 2.5rem;
@@ -270,15 +424,14 @@ header {
 /* SKILLS COMPONENT END */
 
 /* EXPERIENCE SECTION */
-
 /* Main Title - EXPERIENCE */
-.main-title {
-  font-size: 3rem;
-  font-family: 'Lexend', sans-serif;
-  color: #fff;
-  text-align: center;
+.experience-title {
+  font-family: 'Georgia', serif; /* Same as the SKILLS header */
+  font-size: 4rem; /* Match the size with SKILLS */
+  color: #CA9A12; /* Change this to green */
+  text-transform: uppercase;
   text-decoration: underline;
-  margin-bottom: 40px;
+  margin: 20px 0 10px 0; /* Add 20px top margin */
 }
 
 /* Subheading Titles for Work Experience and Education */
@@ -287,8 +440,9 @@ header {
   font-family: 'Lexend', sans-serif;
   color: #fff;
   text-decoration: underline;
-  margin-bottom: 20px;
+  margin-bottom: 10px; /* Reduce margin below the title */
 }
+
 
 /* Align Education title to the left */
 .education-title {
@@ -300,11 +454,10 @@ header {
   text-align: left;
 }
 
-/* Experience Section */
 .experience-section {
   background-color: #000000;
   color: #fff;
-  padding: 0;
+  padding: 30px 0; /* Add padding to the top */
   margin: 0;
   width: 100vw;
   overflow-x: hidden;
@@ -338,11 +491,31 @@ header {
   padding-right: 20px;
   background-color: #fff;
   color: #000;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 15px; /* Reduce padding inside the box */
   box-sizing: border-box;
-  margin-top: 20px;
+  margin-top: 10px; /* Reduce margin above the box */
   max-width: 600px;
+}
+
+.experience-entry {
+  margin-bottom: 8px; /* Reduce space between experience entries */
+}
+
+.experience-entry p {
+  margin-bottom: 3px; /* Reduce the space between paragraphs */
+  font-size: 1.1rem; /* Increase paragraph text size */
+  line-height: 1.2; /* Reduce line spacing */
+}
+
+.experience-entry h3 {
+  font-weight: bold;
+  color: #000; /* Default color for the job title */
+  font-size: 1.3rem; /* Increase title text size */
+  line-height: 1.0; /* Reduce line spacing */
+}
+
+.experience-entry h3 strong {
+  color: #CA9A12; /* Set the company name to #CA9A12 */
 }
 
 /* Right Side Logos and Education Information */
@@ -353,7 +526,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: 'Lexend', sans-serif;
+  font-family: 'Georgia', serif; /* Change to Georgia for consistency */
   margin-top: 20px;
   max-width: 600px;
 }
@@ -365,6 +538,7 @@ header {
   justify-content: flex-start;
   margin-bottom: 40px;
   padding-left: 20px;
+  font-family: 'Georgia', serif; /* Change to Georgia for consistency */
 }
 
 /* Education and Graduation Information */
@@ -400,6 +574,16 @@ header {
   object-fit: contain;
 }
 
+/* Subheading Titles for Work Experience and Education */
+.sub-title, .education-title {
+  font-family: 'Georgia', serif; /* Set font to Georgia */
+  font-size: 1.8rem; /* Adjust size */
+  color: #CA9A12; /* Set color to CA9A12 */
+  text-decoration: underline;
+  margin-bottom: 10px; /* Keep the reduced margin */
+}
+
+
 /* Ensure both sides stay within the container */
 @media (max-width: 768px) {
   .experience-container {
@@ -415,106 +599,13 @@ header {
   }
 }
 
-
 /* EXPERIENCE SECTION END */
 
 
 
 
-/* PROJECTS COMPONENT */
-
-.projects-section {
-  background-color: #ffffff; /* White background for this section */
-  color: #000; /* Text color black */
-  padding: 50px 0;
-  text-align: center;
-}
-
-/* Title Styling */
-.projects-title {
-  font-size: 3rem;
-  font-family: 'Lexend', sans-serif;
-  color: #000; /* Text color black to stand out on white background */
-  text-decoration: underline;
-  margin-bottom: 40px;
-}
-
-/* Projects Container */
-.projects-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 0;
-}
-
-/* Project Card Styling */
-.project-card {
-  width: 100%; /* Full width */
-  max-width: 900px; /* Maximum width */
-  background-color: #ffffff; /* Card background white */
-  color: #000000; /* Text color black */
-  margin-bottom: 30px; /* Add vertical margin */
-  border: 8px solid black; /* Solid black border */
-  border-radius: 0; /* Remove rounded corners */
-}
-
-/* Project GIF Image */
-.project-card img {
-  width: 100%;
-  object-fit: cover;
-}
-
-/* Project Title Styling */
-.project-title {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  margin: 20px 0;
-}
-
-/* Project Description Styling */
-.project-description {
-  font-size: 1.2rem;
-  padding: 20px;
-}
-
-/* Button Styling */
-.project-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 20px; /* Add space between buttons */
-  margin-top: 20px; /* Margin to separate buttons from description */
-}
-
-.project-button {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text */
-  padding: 10px 20px;
-  text-decoration: none;
-  border: 2px solid black;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.project-button:hover {
-  background-color: #444; /* Darker hover effect */
-}
-
-.project-button:active {
-  transform: scale(0.95); /* Button click effect */
-}
-
-/* Add this to the individual project cards */
-.project-card .project-buttons {
-  margin-top: 15px;
-}
 
 
-
-
-/* PROJECTS COMPONENT END */
 
 
 
@@ -527,6 +618,15 @@ header {
   text-align: center;
 }
 
+/* SHPE Title Styling */
+.main-title {
+  font-family: 'Georgia', serif; /* Georgia font */
+  font-size: 4rem; /* Same size as Experience title */
+  color: #000000; /* Same color as other titles */
+  text-decoration: underline; /* Underline title */
+  margin-bottom: 40px;
+}
+
 /* Card Styling for Horizontal Layout */
 .shpe-card {
   display: flex;
@@ -535,9 +635,10 @@ header {
   width: 100%;
   max-width: 1100px;
   background-color: #ffffff; /* Card background */
-  border: 8px solid black; /* Solid border */
+  border: 4px solid black; /* Solid border */
   margin-bottom: 40px; /* Spacing between cards */
   padding: 20px;
+  border-radius: 5px;
 }
 
 /* Text Area Styling */
@@ -569,8 +670,164 @@ header {
   border-radius: 5px; /* Optional: Add some round corners to the image */
 }
 
-
 /* SHPE COMPONENT END */
+
+
+
+
+
+
+/* PROJECTS COMPONENT */
+/* Title Styling */
+.projects-title {
+  font-size: 3rem;
+  font-family: 'Georgia', serif; /* Ensure font style is correct */
+  color: #00ffee; /* Change the text color to black */
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+
+/* Projects Container */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* Project Card Styling */
+.project-card {
+  width: 100%; /* Full width */
+  max-width: 900px; /* Maximum width */
+  background-color: #ffffff; /* Card background white */
+  color: #000000; /* Text color black */
+  margin-bottom: 50px; /* Increased bottom margin to space the buttons */
+  border: 8px solid black; /* Solid black border */
+  border-radius: 0; /* Remove rounded corners */
+  padding-bottom: 20px; /* Added padding at the bottom to give space between buttons and border */
+}
+
+/* Project GIF Image */
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Project Title Styling */
+.project-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Project Description Styling */
+.project-description {
+  font-size: 1.2rem;
+  padding: 20px;
+  font-weight: bold; /* Bold text */
+  color: rgb(86, 86, 86);
+}
+
+/* Button Styling */
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Add space between buttons */
+  margin-top: 20px; /* Margin to separate buttons from description */
+}
+
+/* PROJECTS COMPONENT */
+/* Title Styling */
+.projects-title {
+  font-size: 4rem;
+  font-family: 'Georgia', serif; /* Ensure font style is correct */
+  color: #000000; /* Set the text color to cyan */
+  text-decoration: underline;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Projects Container */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+/* Project Card Styling */
+.project-card {
+  width: 100%; /* Full width */
+  max-width: 900px; /* Maximum width */
+  background-color: #ffffff; /* Card background white */
+  color: #000000; /* Text color black */
+  margin-bottom: 50px; /* Increased bottom margin to space the buttons */
+  border: 8px solid black; /* Solid black border */
+  border-radius: 0; /* Remove rounded corners */
+  padding-bottom: 20px; /* Added padding at the bottom to give space between buttons and border */
+}
+
+/* Project GIF Image */
+.project-card img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Project Title Styling */
+.project-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Project Description Styling */
+.project-description {
+  font-size: 1.2rem;
+  padding: 20px;
+  font-weight: bold; /* Bold text */
+  color: rgb(86, 86, 86);
+}
+
+/* Button Styling */
+.project-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Add space between buttons */
+  margin-top: 20px; /* Margin to separate buttons from description */
+}
+
+.project-button {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 10px 20px;
+  text-decoration: none;
+  border: 2px solid black;
+  font-size: 1.2rem;
+  font-family: 'Georgia', Arial, sans-serif; /* Use Zen font for button text */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #444; /* Darker hover effect */
+}
+
+.project-button:active {
+  transform: scale(0.95); /* Button click effect */
+}
+
+/* Add this to the individual project cards */
+.project-card .project-buttons {
+  margin-top: 15px;
+}
+
+/* PROJECTS COMPONENT END */
+
 
 
 
@@ -579,6 +836,7 @@ header {
 footer {
   background-color: #000000;
   text-align: center;
+  font-size: 1.3rem;
   padding: 20px 0;
   margin-top: auto;
   width: 100%;
@@ -611,20 +869,15 @@ footer {
 .ideal-logic-button {
   display: inline-block;
   padding: 10px 20px;
-  border: 2px solid #ffffff;
+  border: none; /* Removed the border for the button as it's an image */
   color: #ffffff;
   background-color: transparent;
   text-decoration: none;
   border-radius: 5px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
-}
-
-.ideal-logic-button:hover {
-  background-color: #ffffff;
-  color: #1e2b4f;
 }
 
 .social-media {
@@ -646,12 +899,13 @@ footer {
 }
 
 footer p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ffffff;
   font-family: 'Georgia', Arial, sans-serif;
 }
 
 /* FOOTER COMPONENT END */
+
 
 
 /* MEDIA QUERIES */

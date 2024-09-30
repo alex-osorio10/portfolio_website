@@ -11,19 +11,19 @@ const BackgroundImage = () => {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="left-content">
-        <h1 className="name">Alex Diaz Martinez</h1>
+        <h1 className="name">Alex Osorio Trujillo</h1>
         <p className="subtitle">Aspiring UI/UX Designer + Developer</p>
-        <div className="social-buttons">
-          <a href="https://linkedin.com" className="button linkedin">
-            <FontAwesomeIcon icon={faLinkedin} className="social-icon" /> LinkedIn
-          </a>
-          <a href="https://github.com" className="button github">
-            <FontAwesomeIcon icon={faGithub} className="social-icon" /> GitHub
-          </a>
-          <a href="https://instagram.com" className="button instagram">
-            <FontAwesomeIcon icon={faInstagram} className="social-icon" /> Instagram
-          </a>
-        </div>
+      </div>
+      <div className="social-icons">
+        <a href="https://linkedin.com" className="social-icon" aria-label="LinkedIn">
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
+        <a href="https://github.com" className="social-icon" aria-label="GitHub">
+          <FontAwesomeIcon icon={faGithub} />
+        </a>
+        <a href="https://instagram.com" className="social-icon" aria-label="Instagram">
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
       </div>
       <img src={headshot} alt="Headshot" className="headshot-image" />
     </div>

@@ -5,6 +5,8 @@ import shpeInvolvement from './assets/images/my_involvement.png'; // Update the 
 const ShpeComponent = () => {
   return (
     <div className="shpe-section">
+      {/* SHPE Title */}
+      <h1 className="main-title">SHPE</h1>
       <div className="shpe-card">
         <div className="shpe-text">
           <h2>What is SHPE?</h2>

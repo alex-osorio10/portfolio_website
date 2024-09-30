@@ -13,7 +13,7 @@ const Projects = () => {
         {/* Unfazed Project Card */}
         <div className="project-card">
           <img src={unfazedGif} alt="Unfazed Project GIF" className="project-gif" />
-          <h3 className="project-title">Unfazed</h3>
+          <h3 className="project-title">Unfazed - Web Development</h3>
           <p className="project-description">
             I constructed an e-commerce website that lists clothing for a friend’s clothing brand. I used HTML, CSS, and JavaScript.
           </p>
@@ -26,7 +26,7 @@ const Projects = () => {
         {/* Osorio Project Card */}
         <div className="project-card">
           <img src={osorioGif} alt="Osorio Project GIF" className="project-gif" />
-          <h3 className="project-title">Osorio</h3>
+          <h3 className="project-title">Osorio - Web Development</h3>
           <p className="project-description">
             I developed a streaming service clone with user authentication and live movie data from TMDB. I used React and Firebase.
           </p>
@@ -39,7 +39,7 @@ const Projects = () => {
         {/* SHPE Project Card */}
         <div className="project-card">
           <img src={shpeGif} alt="SHPE Project GIF" className="project-gif" />
-          <h3 className="project-title">PSU SHPE</h3>
+          <h3 className="project-title">PSU SHPE - Web Development</h3>
           <p className="project-description">
             I developed an informative website for my Society of Hispanic Professional Engineers (SHPE) club. I used React, Node.js, JavaScript, HTML, and CSS.
           </p>
@@ -52,7 +52,7 @@ const Projects = () => {
         {/* Space Scraper Project Card */}
         <div className="project-card">
           <img src={spaceScraperGif} alt="Space Scraper Project GIF" className="project-gif" />
-          <h3 className="project-title">Space Scraper</h3>
+          <h3 className="project-title">Space Scraper - Virtual Reality</h3>
           <p className="project-description">
             I created an interactive virtual reality game featuring precise hand control and collision detection. I used Unity and C# for development.
           </p>

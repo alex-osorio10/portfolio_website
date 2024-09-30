@@ -1,36 +1,37 @@
 import React from 'react';
-// Import the images from the correct folder
-import instagramLogo from './assets/images/instagram_logo_orange.png';
-import facebookLogo from './assets/images/facebook_logo_orange.png';
-import emailLogo from './assets/images/email_logo_orange.png';
+// Import the gold images from the correct folder
+import linkedinLogoGold from './assets/images/linkedin_logo_gold.png';
+import githubLogoGold from './assets/images/github_logo_gold.png';
+import instagramLogoGold from './assets/images/instagram_logo_gold.png';
+import emailLogoGold from './assets/images/email_logo_gold.png';
 
 function Footer() {
   return (
     <footer>
       <div className="footer-container">
         {/* New Section: Join the Familia */}
-        <h2>Join the Familia!</h2>
-        <p>Discover how SHPE can empower you in your career and education!</p>
+        <h2>Contact</h2>
+        <p>Feel free to reach out and send a message!</p>
         <a 
-          href="https://shpe.org"
+          href="mailto:shpe@pdx.edu" 
           target="_blank" 
           rel="noopener noreferrer"
           className="ideal-logic-button"
         >
-          Learn More
+          <img src={emailLogoGold} alt="Email Icon" className="social-icon" />
         </a>
         
         {/* Follow Us Section */}
-        <h2>Follow Us!</h2>
+        <h2>Links</h2>
         <div className="social-media">
-          <a href="https://www.instagram.com/psu_shpe/" target="_blank" rel="noopener noreferrer">
-            <img src={instagramLogo} alt="Instagram Logo" className="social-icon" />
+          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+            <img src={linkedinLogoGold} alt="LinkedIn Logo" className="social-icon" />
           </a>
-          <a href="https://www.facebook.com/PSUSHPE/" target="_blank" rel="noopener noreferrer">
-            <img src={facebookLogo} alt="Facebook Logo" className="social-icon" />
+          <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">
+            <img src={githubLogoGold} alt="GitHub Logo" className="social-icon" />
           </a>
-          <a href="mailto:shpe@pdx.edu" target="_blank" rel="noopener noreferrer">
-            <img src={emailLogo} alt="Email Icon" className="social-icon" />
+          <a href="https://www.instagram.com/yourprofile/" target="_blank" rel="noopener noreferrer">
+            <img src={instagramLogoGold} alt="Instagram Logo" className="social-icon" />
           </a>
         </div>
 

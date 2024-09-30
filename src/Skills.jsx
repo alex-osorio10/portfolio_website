@@ -13,6 +13,9 @@ import BilingualLogo from './assets/images/logo_gold_bilingual.png';  // Bilingu
 const Skills = () => {
   return (
     <section className="skills-section">
+      {/* "SKILLS" Header */}
+      <h1 className="skills-header">SKILLS</h1>
+
       {/* Technical Skills */}
       <h2 className="skills-title">Technical Skills</h2>
       <div className="skills-grid">
